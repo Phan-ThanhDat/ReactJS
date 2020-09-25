@@ -1,0 +1,59 @@
+.post {
+  color: #37383a;
+  background-color: #ffffff;
+  border: 1px solid #e3e4e8;
+  width: 100%;
+  height: auto;
+  padding: 16px 24px 8px;
+}
+
+.post:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.postTitle {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.postBody {
+  margin: 0 0 16px;
+}
+
+.stats {
+  padding: 8px;
+}
+
+.statsItem {
+  cursor: pointer;
+}
+
+.actionBar {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e3e4e8;
+  padding-top: 8px;
+}
+
+.actionBarItem {
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  padding: 8px;
+}
+
+.actionBarItem:hover {
+  background-color: #f4f5f9;
+}
+
+.actionBarItem:global(.active) {
+  color: #f76452;
+}
+
+.actionBarItemLabel {
+  margin-left: 8px;
+}

@@ -1,0 +1,22 @@
+.post {
+  color: #37383a;
+  background-color: #ffffff;
+  border: 1px solid #e3e4e8;
+  width: 100%;
+  height: auto;
+  padding: 16px 24px;
+}
+
+.post:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.postTitle {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.postBody {
+  margin: 0;
+}
