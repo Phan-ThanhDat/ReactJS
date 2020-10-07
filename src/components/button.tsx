@@ -1,13 +1,8 @@
-import * as React from "react";
-import styles from "./button.module.css";
+import * as React from 'react';
+import styles from './button.module.css';
 
-interface IButtonProps {
-  children: any;
-  onClick?: () => void;
-}
+interface IButtonProps extends React.HTMLAttributes<HTMLButtonElement> {}
 
-export const Button: React.FC<IButtonProps> = ({ children, onClick }) => (
-  <button className={styles.button} onClick={onClick}>
-    {children}
-  </button>
+export const Button: React.FC<IButtonProps> = (props) => (
+  <button className={styles.button} {...props} />
 );

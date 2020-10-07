@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Should onClick as function 1`] = `
+<button
+  className="button"
+  onClick={[Function]}
+>
+  children
+</button>
+`;
+
+exports[`Button Should pass props 1`] = `
+<button
+  aria-busy={true}
+  className="button"
+  onClick={[Function]}
+>
+  Hello
+</button>
+`;
+
+exports[`Button Should render button 1`] = `
+<button
+  className="button"
+>
+  Children of Button component
+</button>
+`;
