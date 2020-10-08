@@ -4,7 +4,7 @@ import { FaTimes } from 'react-icons/fa';
 
 import Button from './components/button';
 import PostList from './components/feed';
-import { Form } from './components/form';
+import Form from './components/form';
 import logo from './images/smarp-logo.png';
 import styles from './smarp-app.module.css';
 import { IPost } from './components/post';
@@ -186,14 +186,14 @@ export default function SmarpApp() {
     const updatedPosts = posts.slice();
 
     // Missing type of IPost["post"]
-    updatedPosts.push({
+    const newPosts = updatedPosts.concat({
       title: payload.title,
       body: payload.body,
       isLiked: false,
       likesCount: 0,
     });
 
-    setPosts(updatedPosts.reverse());
+    setPosts(newPosts.reverse());
     setIsOpen(false);
   };
 
