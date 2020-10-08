@@ -7,16 +7,19 @@ import PostList from './components/feed';
 import { Form } from './components/form';
 import logo from './images/smarp-logo.png';
 import styles from './smarp-app.module.css';
+import { IPost } from './components/post';
 
-export class SmarpApp extends React.Component<
-  {},
-  { posts: any[]; isOpen: boolean }
-> {
+export interface ISmarp {
+  posts: IPost['post'][];
+  isOpen: boolean;
+}
+export class SmarpApp extends React.Component<{}, ISmarp> {
   constructor(props: any) {
     super(props);
 
     this.onLike = this.onLike.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onCreatingPost = this.onCreatingPost.bind(this);
 
     this.state = { posts: [], isOpen: false };
   }
@@ -67,15 +70,32 @@ export class SmarpApp extends React.Component<
   onSubmit(payload: { title: string; body: string }) {
     const updatedPosts = this.state.posts.slice();
 
+    // Missing type of IPost["post"]
     updatedPosts.push({
       title: payload.title,
       body: payload.body,
+      isLiked: false,
+      likesCount: 0,
     });
 
     this.setState({
       posts: updatedPosts.reverse(),
     });
 
+    this.setState({
+      isOpen: false,
+    });
+  }
+
+  // Should define function here to maintain/refactor easily
+  onCreatingPost() {
+    this.setState({
+      isOpen: true,
+    });
+  }
+
+  // Should define function here to maintain/refactor easily
+  onModal() {
     this.setState({
       isOpen: false,
     });
@@ -94,15 +114,7 @@ export class SmarpApp extends React.Component<
 
         <div className={`container ${styles.main}`}>
           <div className={styles.buttonWrapper}>
-            <Button
-              onClick={function (this: any) {
-                this.setState({
-                  isOpen: true,
-                });
-              }.bind(this)}
-            >
-              Create a post
-            </Button>
+            <Button onClick={this.onCreatingPost}>Create a post</Button>
           </div>
 
           <PostList posts={posts} onLike={this.onLike} />
@@ -114,14 +126,7 @@ export class SmarpApp extends React.Component<
           overlayClassName={styles.reactModalOverlay}
         >
           <div className={styles.modalContentHelper}>
-            <div
-              className={styles.modalClose}
-              onClick={function (this: any) {
-                this.setState({
-                  isOpen: false,
-                });
-              }.bind(this)}
-            >
+            <div className={styles.modalClose} onClick={this.onModal}>
               <FaTimes />
             </div>
 
