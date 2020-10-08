@@ -1,6 +1,7 @@
-import * as React from "react";
-import { FaThumbsUp, FaComment } from "react-icons/fa";
-import styles from "./feed.module.css";
+import * as React from 'react';
+import { FaThumbsUp, FaComment } from 'react-icons/fa';
+
+import styles from './feed.module.css';
 
 interface IFeedProps {
   posts: any;
@@ -45,19 +46,17 @@ export const Post: React.FC<{
 
       <div className={styles.actionBar}>
         <div
-          className={`${styles.actionBarItem} ${
-            post.isLiked ? "active" : ""
-          }`}
-          role="button"
+          className={`${styles.actionBarItem} ${post.isLiked ? 'active' : ''}`}
+          role='button'
           onClick={() => {
-              onLike(index);
+            onLike(index);
           }}
         >
           <FaThumbsUp /> <span className={styles.actionBarItemLabel}>Like</span>
         </div>
 
-        <div className={styles.actionBarItem} role="button">
-          <FaComment />{" "}
+        <div className={styles.actionBarItem} role='button'>
+          <FaComment />{' '}
           <span className={styles.actionBarItemLabel}>Comment</span>
         </div>
       </div>

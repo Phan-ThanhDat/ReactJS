@@ -1,5 +1,6 @@
-import * as React from "react";
-import styles from "./post.module.css";
+import * as React from 'react';
+
+import styles from './post.module.css';
 
 interface IPost {
   title: string;

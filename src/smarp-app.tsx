@@ -1,11 +1,12 @@
-import * as React from "react";
-import Modal from "react-modal";
-import { FaTimes } from "react-icons/fa";
-import { Button } from "./components/button";
-import PostList from "./components/feed";
-import { Form } from "./components/form";
-import logo from "./images/smarp-logo.png";
-import styles from "./smarp-app.module.css";
+import * as React from 'react';
+import Modal from 'react-modal';
+import { FaTimes } from 'react-icons/fa';
+
+import { Button } from './components/button';
+import PostList from './components/feed';
+import { Form } from './components/form';
+import logo from './images/smarp-logo.png';
+import styles from './smarp-app.module.css';
 
 export class SmarpApp extends React.Component<
   {},
@@ -19,7 +20,7 @@ export class SmarpApp extends React.Component<
 
     this.state = { posts: [], isOpen: false };
 
-    fetch("https://jsonplaceholder.typicode.com/posts").then((response) => {
+    fetch('https://jsonplaceholder.typicode.com/posts').then((response) => {
       const jsonResponse = response.json();
 
       jsonResponse.then((rawData) => {
@@ -78,7 +79,7 @@ export class SmarpApp extends React.Component<
       <div>
         <header className={styles.header}>
           <div className={`container ${styles.headerImageWrapper}`}>
-            <img src={logo} className={styles.headerImage} alt="logo" />
+            <img src={logo} className={styles.headerImage} alt='logo' />
           </div>
         </header>
 

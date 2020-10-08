@@ -1,9 +1,10 @@
-import * as React from "react";
-import { Button } from "./button";
-import styles from "./form.module.css";
+import * as React from 'react';
+
+import { Button } from './button';
+import styles from './form.module.css';
 
 interface IFormProps {
-  "on-submit": (payload: { title: string; body: string }) => void;
+  'on-submit': (payload: { title: string; body: string }) => void;
 }
 
 export const Form: React.FC<IFormProps> = (props) => {
@@ -15,18 +16,18 @@ export const Form: React.FC<IFormProps> = (props) => {
     e.preventDefault();
 
     if (!titleRef.current?.value) {
-      alert("Your post needs a title");
+      alert('Your post needs a title');
 
       return;
     }
 
     if (!bodyRef.current?.value) {
-      alert("Your post needs some content");
+      alert('Your post needs some content');
 
       return;
     }
 
-    props["on-submit"]({
+    props['on-submit']({
       title: titleRef.current?.value,
       body: bodyRef.current?.value,
     });
@@ -40,8 +41,8 @@ export const Form: React.FC<IFormProps> = (props) => {
 
       <input
         ref={titleRef}
-        placeholder="Title..."
-        defaultValue=""
+        placeholder='Title...'
+        defaultValue=''
         className={styles.input}
       />
 
@@ -49,8 +50,8 @@ export const Form: React.FC<IFormProps> = (props) => {
 
       <textarea
         ref={bodyRef}
-        placeholder="Start typing post content here..."
-        defaultValue=""
+        placeholder='Start typing post content here...'
+        defaultValue=''
         className={styles.textarea}
       />
 
