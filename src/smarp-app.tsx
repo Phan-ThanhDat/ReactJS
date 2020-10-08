@@ -19,7 +19,13 @@ export class SmarpApp extends React.Component<
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = { posts: [], isOpen: false };
+  }
 
+  componentDidMount() {
+    // move fetch api feature to componentDidMount with 2 reasons:
+    // we often fetch api in componentDidMount and setState is not on Constructor,
+    // because if we set-state in Constructor,
+    // component will re-render when it has not been rendered yet
     fetch('https://jsonplaceholder.typicode.com/posts').then((response) => {
       const jsonResponse = response.json();
 
@@ -41,7 +47,10 @@ export class SmarpApp extends React.Component<
   }
 
   onLike(index: number) {
-    const posts = this.state.posts;
+    // Should clone to new array, because when set-state, the posts array has the same
+    // address with this.state.posts, so the component will not re-render
+    // even we did modify something.
+    const posts = this.state.posts.slice();
     const post = posts[index];
 
     if (post.isLiked) {
