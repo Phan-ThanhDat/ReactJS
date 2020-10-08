@@ -2,8 +2,8 @@ import { Form, Formik, FormikHelpers, Field } from 'formik';
 import * as React from 'react';
 import * as Yup from 'yup';
 
-import Button from './button';
-import styles from './form.module.css';
+import Button from '../Button/Button';
+import styles from './Form.module.css';
 
 interface IFormProps {
   'on-submit': (payload: { title: string; body: string }) => void;

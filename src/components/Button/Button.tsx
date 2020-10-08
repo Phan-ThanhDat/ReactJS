@@ -1,6 +1,6 @@
 import React, { AllHTMLAttributes } from 'react';
 
-import styles from './button.module.css';
+import styles from './Button.module.css';
 
 interface IButtonProps extends AllHTMLAttributes<HTMLButtonElement> {
   type?: 'button' | 'submit' | 'reset' | undefined;

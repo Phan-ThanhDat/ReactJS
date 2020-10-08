@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 
 import './index.css';
-import SmarpApp from './smarp-app';
+import SmarpApp from './pages/smarp-app';
 import * as serviceWorker from './serviceWorker';
 
 Modal.setAppElement('#root');

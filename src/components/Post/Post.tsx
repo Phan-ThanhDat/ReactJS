@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import { FaThumbsUp, FaComment } from 'react-icons/fa';
-import Button from './button';
-import styles from './post.module.css';
+import Button from '../Button/Button';
+import styles from './Post.module.css';
 
 // removed unused old-Post component ( in the bottom )
 // moved used-Post component from feed (List-Post) component to here
@@ -20,7 +20,7 @@ export interface IPost {
   onLike: (index: number) => void;
 }
 
-export const Post: React.FC<IPost> = ({ index, post, onLike }) => {
+const Post: React.FC<IPost> = ({ index, post, onLike }) => {
   const handleLike = () => {
     onLike(index);
   };
@@ -55,3 +55,5 @@ export const Post: React.FC<IPost> = ({ index, post, onLike }) => {
     </div>
   );
 };
+
+export default Post;

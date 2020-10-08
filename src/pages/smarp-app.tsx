@@ -2,12 +2,12 @@ import * as React from 'react';
 import Modal from 'react-modal';
 import { FaTimes } from 'react-icons/fa';
 
-import Button from './components/button';
-import PostList from './components/feed';
-import Form from './components/form';
-import logo from './images/smarp-logo.png';
+import Button from '../components/Button';
+import PostList from '../components/Feed';
+import Form from '../components/Form';
+import logo from '../images/smarp-logo.png';
 import styles from './smarp-app.module.css';
-import { IPost } from './components/post';
+import { IPost } from '../components/Post';
 
 export interface ISmarp {
   posts: IPost['post'][];

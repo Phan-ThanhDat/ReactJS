@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 
-import Button from './button';
+import Button from '../Button/Button';
 import styles from './form.module.css';
 
 interface IFormProps {

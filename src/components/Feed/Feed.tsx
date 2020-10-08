@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { ReactNode } from 'react';
-
-import { IPost, Post } from './post';
+import Post, { IPost } from '../Post/Post';
 
 interface IFeedProps {
   posts: IPost['post'][];
