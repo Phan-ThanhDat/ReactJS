@@ -1,7 +1,7 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
 
-import { Button } from './button';
+import Button from './button';
 
 describe('Button', () => {
   it('Should render button', () => {
@@ -16,7 +16,7 @@ describe('Button', () => {
 
   it('Should pass props', () => {
     const component = renderer.create(
-      <Button aria-busy={true} onClick={() => {}}>
+      <Button type='button' aria-busy={true} onClick={() => {}}>
         Hello
       </Button>
     );
