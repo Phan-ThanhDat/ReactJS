@@ -1,6 +1,7 @@
 import * as React from 'react';
+import { useState } from 'react';
 
-import { Button } from './button';
+import Button from './button';
 import styles from './form.module.css';
 
 interface IFormProps {
@@ -12,19 +13,24 @@ export const Form: React.FC<IFormProps> = (props) => {
   const titleRef = React.useRef<HTMLInputElement>(null);
   const bodyRef = React.useRef<HTMLTextAreaElement>(null);
 
+  const [messageTitle, setMessageTitle] = useState('');
+  const [messageBody, setMessageBody] = useState('');
+
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
     if (!titleRef.current?.value) {
-      alert('Your post needs a title');
-
+      setMessageTitle('Your post needs a title');
       return;
+    } else if (titleRef.current?.value) {
+      setMessageTitle('');
     }
 
     if (!bodyRef.current?.value) {
-      alert('Your post needs some content');
-
+      setMessageBody('Your post needs some content');
       return;
+    } else if (bodyRef.current?.value) {
+      setMessageBody('');
     }
 
     props['on-submit']({
@@ -38,7 +44,9 @@ export const Form: React.FC<IFormProps> = (props) => {
   return (
     <form className={styles.form} onSubmit={handleSubmit} ref={formRef}>
       <label className={styles.label}>Post title: *</label>
-
+      {!titleRef.current?.value && (
+        <span className={styles.message}>{messageTitle}</span>
+      )}
       <input
         ref={titleRef}
         placeholder='Title...'
@@ -47,7 +55,9 @@ export const Form: React.FC<IFormProps> = (props) => {
       />
 
       <label className={styles.label}>Post content: *</label>
-
+      {!bodyRef.current?.value && (
+        <span className={styles.message}>{messageBody}</span>
+      )}
       <textarea
         ref={bodyRef}
         placeholder='Start typing post content here...'

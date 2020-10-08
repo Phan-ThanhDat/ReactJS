@@ -16,5 +16,5 @@ export default function Feed(props: IFeedProps) {
       <Post key={index} index={index} post={post} onLike={props.onLike} />
     );
   });
-  return <div>{posts}</div>;
+  return <>{posts}</>;
 }

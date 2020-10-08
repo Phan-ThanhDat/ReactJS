@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { FaThumbsUp, FaComment } from 'react-icons/fa';
-import { Button } from './button';
+import Button from './button';
 import styles from './post.module.css';
 
 // removed unused old-Post component ( in the bottom )
@@ -21,6 +21,10 @@ export interface IPost {
 }
 
 export const Post: React.FC<IPost> = ({ index, post, onLike }) => {
+  const handleLike = () => {
+    onLike(index);
+  };
+
   return (
     <div className={styles.post}>
       <p className={styles.postTitle}>{post.title}</p>
@@ -38,9 +42,7 @@ export const Post: React.FC<IPost> = ({ index, post, onLike }) => {
       <div className={styles.actionBar}>
         <Button
           className={`${styles.actionBarItem} ${post.isLiked ? 'active' : ''}`}
-          onClick={() => {
-            onLike(index);
-          }}
+          onClick={handleLike}
         >
           <FaThumbsUp /> <span className={styles.actionBarItemLabel}>Like</span>
         </Button>
@@ -53,16 +55,3 @@ export const Post: React.FC<IPost> = ({ index, post, onLike }) => {
     </div>
   );
 };
-
-// interface IPost {
-//   title: string;
-//   body: string;
-// }
-
-// export const Post: React.FC<IPost> = ({ title, body }) => (
-//   <div className={styles.post}>
-//     <p className={styles.postTitle}>{title}</p>
-
-//     <p className={styles.postBody}>{body}</p>
-//   </div>
-// );

@@ -2,7 +2,12 @@
   display: flex;
   flex-direction: column;
 }
-
+.message {
+  color: #f76452;
+  font-size: 8px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
 .label {
   color: #37383a;
   font-weight: 600;
@@ -10,7 +15,7 @@
 }
 
 .input {
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-size: 16px;
   border: 1px solid #e3e4e8;
   width: 100%;
@@ -26,7 +31,7 @@
 
 .textarea {
   resize: none;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-size: 16px;
   border: 1px solid #e3e4e8;
   width: 100%;
