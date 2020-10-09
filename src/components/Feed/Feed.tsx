@@ -19,7 +19,7 @@ export default function Feed(props: IFeedProps) {
     posts.push(
       <Post
         key={index}
-        index={post?.id || index}
+        index={index}
         post={post}
         cmts={filtered}
         onLike={props.onLike}

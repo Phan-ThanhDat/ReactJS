@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Modal from 'react-modal';
 import { FaTimes } from 'react-icons/fa';
+import useSWR from 'swr';
 
 import Button from '../components/Button';
 import PostList from '../components/Feed';
@@ -9,6 +10,9 @@ import logo from '../images/smarp-logo.png';
 import styles from './smarp-app.module.css';
 import { IPost } from '../components/Post';
 import { useFetchAPIs } from '../components/hooks/useFetchData';
+import Loading from '../components/Loading';
+
+const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 export interface ICmts {
   body: string;
@@ -153,33 +157,32 @@ export default function SmarpApp() {
   const [posts, setPosts] = React.useState<IPost['post'][]>([]);
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
   const [cmts, setCmts] = React.useState<ICmts[]>([]);
+
+  const { data } = useSWR(
+    'https://jsonplaceholder.typicode.com/posts',
+    fetcher
+  );
+
+  const dataClone: IPost['post'][] = [];
+
+  data?.map((item: IPost['post'], i: number) => {
+    const updatedPost = item;
+    updatedPost.likesCount = 0;
+    dataClone.push(updatedPost);
+  });
+
   React.useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts').then((response) => {
-      const jsonResponse = response.json();
+    setPosts(dataClone);
+  }, [data]);
 
-      jsonResponse.then((rawData) => {
-        const data = [];
-
-        for (let i = 0; i < rawData.length; i++) {
-          const updatedPost = rawData[i];
-          updatedPost.likesCount = 0;
-
-          data.push(updatedPost);
-        }
-
-        setPosts(data);
-      });
-    });
-  }, []);
-
-  const { data, error } = useFetchAPIs(
+  const cmtsData = useFetchAPIs(
     'https://jsonplaceholder.typicode.com/comments',
     'comments'
   );
-
+  const dataCmts = cmtsData.data;
   React.useEffect(() => {
-    setCmts(data as any);
-  }, [data]);
+    setCmts(dataCmts as any);
+  }, [cmtsData.data]);
 
   const onLike = React.useCallback(
     (index: number) => {

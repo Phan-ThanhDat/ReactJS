@@ -44,7 +44,7 @@ export default function TransitionsModal({
     handleOpenModalClosedChild(false);
     setOpen(false);
   };
-  console.log(data);
+
   return (
     <Modal
       aria-labelledby='transition-modal-title'
