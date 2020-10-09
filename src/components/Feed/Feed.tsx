@@ -1,13 +1,8 @@
 import * as React from 'react';
 import { ReactNode } from 'react';
-import { ICmts } from '../../pages/smarp-app';
-import Post, { IPost } from '../Post/Post';
 
-interface IFeedProps {
-  cmts: ICmts[];
-  posts: IPost['post'][];
-  onLike: (index: number) => void;
-}
+import { IFeedProps, IPost } from '../../types';
+import Post from '../Post/Post';
 
 export default function Feed(props: IFeedProps) {
   var posts: ReactNode[] = [];

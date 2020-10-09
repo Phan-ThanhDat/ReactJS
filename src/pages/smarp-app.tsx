@@ -8,25 +8,12 @@ import PostList from '../components/Feed';
 import Form from '../components/Form';
 import logo from '../images/smarp-logo.png';
 import styles from './smarp-app.module.css';
-import { IPost } from '../components/Post';
+import { IPost } from '../types';
 import { useFetchAPIs } from '../components/hooks/useFetchData';
-import Loading from '../components/Loading';
+import { ICmts } from '../types';
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
-export interface ICmts {
-  body: string;
-  email: string;
-  name: string;
-  id: number;
-  postId: number;
-}
-
-export interface ISmarp {
-  posts: IPost['post'][];
-  cmts: ICmts[];
-  isOpen: boolean;
-}
 // export default class SmarpApp extends React.Component<{}, ISmarp> {
 //   constructor(props: any) {
 //     super(props);

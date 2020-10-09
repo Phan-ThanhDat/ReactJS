@@ -1,14 +1,8 @@
-import React, {FunctionComponent} from 'react';
+import React, { FunctionComponent } from 'react';
 import clsx from 'clsx';
 
 import styles from './Loading.module.css';
-
-interface LoadingProps {
-  classes?: {
-    wrapper?: string;
-    loader?: string;
-  };
-}
+import { LoadingProps } from '../../types';
 
 const Loading: FunctionComponent<LoadingProps> = ({
   classes = {},

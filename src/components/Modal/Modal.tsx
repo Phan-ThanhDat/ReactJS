@@ -4,7 +4,9 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
-const useStyles = makeStyles((theme: Theme) =>
+import { IModal } from '../../types';
+
+export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     modal: {
       display: 'flex',
@@ -21,12 +23,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
-
-interface IModal {
-  data: any;
-  isOpenModal: boolean;
-  handleOpenModalClosedChild: (isOpen: boolean) => void;
-}
 
 export default function TransitionsModal({
   data,

@@ -2,16 +2,9 @@ import { Form, Formik, FormikHelpers, Field } from 'formik';
 import * as React from 'react';
 import * as Yup from 'yup';
 
+import { IFormProps, IFormValues } from '../../types';
 import Button from '../Button/Button';
 import styles from './Form.module.css';
-
-interface IFormProps {
-  'on-submit': (payload: { title: string; body: string }) => void;
-}
-interface IFormValues {
-  title: string;
-  body: string;
-}
 
 const FormPost: React.FC<IFormProps> = (props) => {
   const formRef = React.useRef<HTMLFormElement>(null);

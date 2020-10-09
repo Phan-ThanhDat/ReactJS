@@ -1,26 +1,5 @@
 import React from 'react';
 
-// export const useFetchData = (uri: string) => {
-//   const [data, setData] = React.useState(null);
-//   const [error, setError] = React.useState(null);
-
-//   React.useEffect(() => {
-//     const handleFetch = async () => {
-//       try {
-//         const res = await fetch(uri);
-//         const json = await res.json();
-
-//         setData(json);
-//       } catch (e) {
-//         setError(e);
-//       }
-//     };
-//     handleFetch();
-//   }, [uri]);
-
-//   return { data, error };
-// };
-
 export const useFetchAPIs = (uri: string, nameCache: string) => {
   const [data, setData] = React.useState(null);
   const [error, setError] = React.useState(null);

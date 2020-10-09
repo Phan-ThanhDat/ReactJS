@@ -1,9 +1,8 @@
 import * as React from 'react';
-
 import { FaThumbsUp, FaComment } from 'react-icons/fa';
-import { ICmts } from '../../pages/smarp-app';
+
+import { IPost } from '../../types';
 import Button from '../Button/Button';
-import { useFetchAPIs } from '../hooks/useFetchData';
 import TransitionsModal from '../Modal';
 import styles from './Post.module.css';
 
@@ -11,19 +10,6 @@ import styles from './Post.module.css';
 // moved used-Post component from feed (List-Post) component to here
 // refactor component like interface...
 // accessibility = replace div with role=button with Button component
-
-export interface IPost {
-  index: number;
-  post: {
-    title: string;
-    body: string;
-    likesCount: number;
-    isLiked: boolean;
-    id?: number;
-  };
-  cmts: ICmts[];
-  onLike: (index: number) => void;
-}
 
 const Post: React.FC<IPost> = ({ index, post, onLike, cmts }) => {
   const [isOpenCmt, setIsOpenCmt] = React.useState<boolean>(false);

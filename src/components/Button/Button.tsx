@@ -1,10 +1,7 @@
-import React, { AllHTMLAttributes } from 'react';
+import React from 'react';
 
+import { IButtonProps } from '../../types';
 import styles from './Button.module.css';
-
-interface IButtonProps extends AllHTMLAttributes<HTMLButtonElement> {
-  type?: 'button' | 'submit' | 'reset' | undefined;
-}
 
 const Button: React.FC<IButtonProps> = (props) => (
   <button className={styles.button} {...props} />
