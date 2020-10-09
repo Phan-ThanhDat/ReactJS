@@ -1,7 +1,10 @@
 import * as React from 'react';
 
 import { FaThumbsUp, FaComment } from 'react-icons/fa';
+import { ICmts } from '../../pages/smarp-app';
 import Button from '../Button/Button';
+import { useFetchAPIs } from '../hooks/useFetchData';
+import TransitionsModal from '../Modal';
 import styles from './Post.module.css';
 
 // removed unused old-Post component ( in the bottom )
@@ -16,13 +19,24 @@ export interface IPost {
     body: string;
     likesCount: number;
     isLiked: boolean;
+    id?: number;
   };
+  cmts: ICmts[];
   onLike: (index: number) => void;
 }
 
-const Post: React.FC<IPost> = ({ index, post, onLike }) => {
+const Post: React.FC<IPost> = ({ index, post, onLike, cmts }) => {
+  const [isOpenCmt, setIsOpenCmt] = React.useState<boolean>(false);
   const handleLike = () => {
     onLike(index);
+  };
+
+  const handleCmt = () => {
+    setIsOpenCmt(!isOpenCmt);
+  };
+
+  const handleOpenModalClosedParent = (isModalClosed: boolean) => {
+    setIsOpenCmt(isModalClosed);
   };
 
   return (
@@ -47,10 +61,21 @@ const Post: React.FC<IPost> = ({ index, post, onLike }) => {
           <FaThumbsUp /> <span className={styles.actionBarItemLabel}>Like</span>
         </Button>
 
-        <Button className={styles.actionBarItem} role='button'>
-          <FaComment />{' '}
-          <span className={styles.actionBarItemLabel}>Comment</span>
-        </Button>
+        <div className={styles.wrapperComments}>
+          <Button className={styles.actionBarItem} onClick={handleCmt}>
+            <FaComment />{' '}
+            <span className={styles.actionBarItemLabel}>Comment</span>
+          </Button>
+          <div className={styles.wrapperCmts}>
+            {isOpenCmt && cmts && (
+              <TransitionsModal
+                data={cmts}
+                handleOpenModalClosedChild={handleOpenModalClosedParent}
+                isOpenModal={isOpenCmt}
+              />
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

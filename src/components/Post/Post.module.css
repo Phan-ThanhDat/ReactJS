@@ -62,3 +62,14 @@
 .actionBarItemLabel {
   margin-left: 8px;
 }
+
+.wrapperComments {
+  display: block;
+}
+
+.wrapperCmts {
+  display: block;
+}
+
+.cmt {
+}

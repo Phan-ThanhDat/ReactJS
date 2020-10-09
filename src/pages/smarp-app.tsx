@@ -8,9 +8,19 @@ import Form from '../components/Form';
 import logo from '../images/smarp-logo.png';
 import styles from './smarp-app.module.css';
 import { IPost } from '../components/Post';
+import { useFetchAPIs } from '../components/hooks/useFetchData';
+
+export interface ICmts {
+  body: string;
+  email: string;
+  name: string;
+  id: number;
+  postId: number;
+}
 
 export interface ISmarp {
   posts: IPost['post'][];
+  cmts: ICmts[];
   isOpen: boolean;
 }
 // export default class SmarpApp extends React.Component<{}, ISmarp> {
@@ -142,7 +152,7 @@ export interface ISmarp {
 export default function SmarpApp() {
   const [posts, setPosts] = React.useState<IPost['post'][]>([]);
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
-
+  const [cmts, setCmts] = React.useState<ICmts[]>([]);
   React.useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts').then((response) => {
       const jsonResponse = response.json();
@@ -161,6 +171,15 @@ export default function SmarpApp() {
       });
     });
   }, []);
+
+  const { data, error } = useFetchAPIs(
+    'https://jsonplaceholder.typicode.com/comments',
+    'comments'
+  );
+
+  React.useEffect(() => {
+    setCmts(data as any);
+  }, [data]);
 
   const onLike = React.useCallback(
     (index: number) => {
@@ -222,7 +241,7 @@ export default function SmarpApp() {
           <Button onClick={onCreatingPost}>Create a post</Button>
         </div>
 
-        <PostList posts={posts} onLike={onLike} />
+        <PostList cmts={cmts} posts={posts} onLike={onLike} />
       </div>
 
       <Modal
