@@ -1,0 +1,51 @@
+firstly, I want to say about the positions of files.
+For example, In the init time, we have Button component
+with 2 files: styles-css module and tsx file-the component file.
+In my experience, they should be in the Button folder, and we should
+have index file like this. it is best practice.
+
+Secondly, I would talk about the refactor code.
+for example, Button component file, it has interface props,
+it extends AllHTMLAttributes or HTMLAtttributes, it is depends,
+but this interface will have all props or methods from its parent,
+like onClick, children, and we do not need to define it in this component.
+
+next, it is about the function component with hook.
+so I change Smarp component to function component, using hooks.
+In the original code, we have class component, and in constructor, we 
+fetch api to get data, in this time, our component has not mounted yet,
+so we should not get any data. we should fetch api in componentDidmount.
+One more, in constructor, we should not set-state, because 
+it is creating, and it will be re-render when the component has not mounted yet,
+
+next, we should not use alert, because it makes broswer pause working, and
+if we have any script is running, it leads to some bugs or errors, because the
+script is still runing, but browser is pause.
+
+next, when set-state, we should use some methods to return new array or object, 
+because javascript uses shalow comparison to compare  2 objects or array.
+so the address of 2 objects or arrays is same, and set-state in this 
+case, is not working, because we do not clone new object with deep copy, 
+and component will not re-render,
+because old object and new object is same, they are stored in one address.
+if we compare 2 objects, the result is true.
+we can deep clone new object or array by concat, slice methods, or spread operator syntax.
+
+
+next is refactor code again, in the origianl code in Smarp component, there are 
+some more methods are written directly in return method of component. we should not
+do that, we should define methods or function separately.
+I tried to use custom hook for fetching data, in order to reuse somewhere.
+but in this assigment, there are 2 places for fetching data, posts and comments.
+For fetching posts data, I tried to use http request cache, in order imporve 
+performance. secondly, for comments, I tried to use swr. it is 
+a HTTP cache invalidation strategy, SWR is a strategy to first return the data 
+from cache (stale), then send the fetch request (revalidate), 
+and finally come with the up-to-date data.
+In some previous project, depend on the requirement of the projects, 
+I use swr or apolo to cache http request and data.
+
+
+
+
+

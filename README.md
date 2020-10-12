@@ -1,5 +1,7 @@
 # Welcome to our coding challenge!
 
+### Deploy link([https://coding-chalenge.vercel.app/])
+
 First of all, thank you for taking the time, we really appreciate it :smile:
 
 We carefully put together this coding challenge to asses your Javascript and React skills. We spent some time making it exciting so we hope you enjoy it.
@@ -14,23 +16,23 @@ Of course, if you make any fixes or changes, we'll require you to explain about 
 
 ## How to tackle this challenge
 
-* Clone this repository. 
-* You'll branch out from master, and start taking a look at the code locally.
-* In the end of this readme there are instructions on how to run the project, but this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) so it should be fairly straightforward.
-* Please make [atomic commits](https://www.codewithjason.com/atomic-commits-testing/#:~:text=%E2%80%9CAtomic%20commit%E2%80%9D%20is%20basically%20a,or%20two%20lines%20of%20code.) as a way of documenting your changes.
-* The current implementation works as intended from an end user's perspective, so when making a change, please have a strong reasoning behind it.
-* The deadline to finalize your changes will be right before our scheduled interview.
+- Clone this repository.
+- You'll branch out from master, and start taking a look at the code locally.
+- In the end of this readme there are instructions on how to run the project, but this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) so it should be fairly straightforward.
+- Please make [atomic commits](https://www.codewithjason.com/atomic-commits-testing/#:~:text=%E2%80%9CAtomic%20commit%E2%80%9D%20is%20basically%20a,or%20two%20lines%20of%20code.) as a way of documenting your changes.
+- The current implementation works as intended from an end user's perspective, so when making a change, please have a strong reasoning behind it.
+- The deadline to finalize your changes will be right before our scheduled interview.
 
 **Bonus points (these items are not required to be fully implemented, before moving to these, please finish reviewing the existing code)**:
 
-* **Unit / Integration tests**:
-You can add unit or integration tests. It's not necessary to do it extensively, just enough to give us a sense of your testing strategy.
-* **Viewing post comments**:
-We used [JSONPlaceholder](https://jsonplaceholder.typicode.com/) to fetch some dummy posts to show in our application. You can use the same service to also fetch comments, and show them for each post. You can either fetch all comments or load comments per post.
-* **Comment on a post**:
-There is a button to comment on each post that isn't working right now, you can implement it.
-* **Deployment**:
-You can deploy this to a service of your choice.
+- **Unit / Integration tests**:
+  You can add unit or integration tests. It's not necessary to do it extensively, just enough to give us a sense of your testing strategy.
+- **Viewing post comments**:
+  We used [JSONPlaceholder](https://jsonplaceholder.typicode.com/) to fetch some dummy posts to show in our application. You can use the same service to also fetch comments, and show them for each post. You can either fetch all comments or load comments per post.
+- **Comment on a post**:
+  There is a button to comment on each post that isn't working right now, you can implement it.
+- **Deployment**:
+  You can deploy this to a service of your choice.
 
 These extra features have very loose requirements. The UI is up to you, but make it work first.
 
@@ -42,12 +44,12 @@ During our interview you will have 30 minutes to present your changes to us. Ple
 
 Things we'll asses during the interview:
 
-* **Problem comprehension**
-* **Problem solving**
-* **Agile mentality**
-* **Quality mindset**
-* **Clean code principles**
-* **React and Javascript knowledge**
+- **Problem comprehension**
+- **Problem solving**
+- **Agile mentality**
+- **Quality mindset**
+- **Clean code principles**
+- **React and Javascript knowledge**
 
 ## Available Scripts
 
